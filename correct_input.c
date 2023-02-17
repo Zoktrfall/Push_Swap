@@ -61,20 +61,20 @@ int	correct_input(char **argv, int **old_mas, size_t *len_old)
 	int			*new_mas;
 	size_t		len_new;
 
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (argv[++i])
 	{
 		str = ft_split(argv[i], ' ');
 		if (check_str(str) || !str || !str[0])
 		{
 			free_str(str);
+			free(*old_mas);
 			return (1);
 		}
 		len_new = add_int(&new_mas, str, old_mas);
 		free_str(str);
 		*old_mas = f_cat(old_mas, new_mas, len_new, *len_old);
 		*len_old += len_new;
-		i++;
 	}
 	if (*len_old == 1 || !(*len_old))
 		program_exit(old_mas);

@@ -21,10 +21,12 @@ int	main(int argc, char *argv[])
 	// 	printf("%d\n", old_mas[i++]);
 	// printf("continue\n");
 	// printf("%zu\n", len_old);
-	while(stack_a != NULL)
-	{
-		printf("%d\n", stack_a->value);
-		stack_a = stack_a->next;
-	}
+	// t_stacks *tmp = stack_a;
+	// while(stack_a != NULL)
+	// {
+	// 	printf("%d\n", stack_a->value);
+	// 	stack_a = stack_a->next;
+	// }
+	system("leaks a.out");
 	return (0);
 }
