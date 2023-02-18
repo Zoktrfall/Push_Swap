@@ -79,3 +79,16 @@ t_stacks	*add_to_empty(t_stacks *stack_a, int value)
 	stack_a = tmp;
 	return (stack_a);
 }
+
+t_stacks	*add_to_beg(t_stacks *stack_a, int value)
+{
+	t_stacks	*tmp;
+
+	tmp = (t_stacks *)malloc(sizeof(t_stacks));
+	tmp->prev = NULL;
+	tmp->value = value;
+	tmp->next = stack_a;
+	stack_a->prev = tmp;
+	stack_a = tmp;
+	return (stack_a);
+}

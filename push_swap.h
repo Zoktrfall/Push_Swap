@@ -21,6 +21,11 @@ int			correct_input(char **argv, int **old_mas, size_t *len_old);
 int			str_number(char *str);
 int			duplicate_check(int **old_mas, size_t len_old);
 
+//Operators
+t_stacks	*oper_sa(t_stacks *stack_a);
+t_stacks	*oper_ra(t_stacks *stack_a);
+t_stacks	*oper_rra(t_stacks *stack_a);
+
 //Creator
 size_t		add_int(int **new_mas, char **str, int **old_mas);
 t_stacks	*create_stack(int *old_mas, size_t len_old, t_stacks *stack_a);

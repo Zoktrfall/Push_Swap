@@ -22,11 +22,11 @@ int	main(int argc, char *argv[])
 	// printf("continue\n");
 	// printf("%zu\n", len_old);
 	// t_stacks *tmp = stack_a;
-	// while(stack_a != NULL)
-	// {
-	// 	printf("%d\n", stack_a->value);
-	// 	stack_a = stack_a->next;
-	// }
-	system("leaks a.out");
+	while(stack_a != NULL)
+	{
+		printf("%d\n", stack_a->value);
+		stack_a = stack_a->next;
+	}
+	// system("leaks a.out");
 	return (0);
 }
