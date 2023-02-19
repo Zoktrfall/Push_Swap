@@ -22,11 +22,26 @@ int	main(int argc, char *argv[])
 	// printf("continue\n");
 	// printf("%zu\n", len_old);
 	// t_stacks *tmp = stack_a;
+	do_pb(&stack_a, &stack_b);
+	do_pb(&stack_a, &stack_b);
+	do_pb(&stack_a, &stack_b);
+	do_pb(&stack_a, &stack_b);
+	do_pb(&stack_a, &stack_b);
+
+	do_pa(&stack_b, &stack_a);
+
 	// while(stack_a != NULL)
 	// {
-	// 	printf("%d\n", stack_a->value);
+	// 	printf("%d ", stack_a->value);
 	// 	stack_a = stack_a->next;
 	// }
+	// printf("\n");
+	// while(stack_b != NULL)
+	// {
+	// 	printf("%d ", stack_b->value);
+	// 	stack_b = stack_b->next;
+	// }
+
 	// system("leaks a.out");
 	return (0);
 }

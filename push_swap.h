@@ -28,6 +28,8 @@ t_stacks	*oper_ra_rb(t_stacks *stack);
 t_stacks	*oper_rra_rrb(t_stacks *stack);
 
 //Reproduce operation
+void		do_pa(t_stacks **stack_b, t_stacks **stack_a);
+void		do_pb(t_stacks **stack_a, t_stacks **stack_b);
 void		do_ss(t_stacks **stack_a, t_stacks **stack_b);
 void		do_sb(t_stacks **stack_b);
 void		do_sa(t_stacks **stack_a);
