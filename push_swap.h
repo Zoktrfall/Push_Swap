@@ -22,13 +22,26 @@ int			str_number(char *str);
 int			duplicate_check(int **old_mas, size_t len_old);
 
 //Operators
-t_stacks	*oper_sa(t_stacks *stack_a);
-t_stacks	*oper_ra(t_stacks *stack_a);
-t_stacks	*oper_rra(t_stacks *stack_a);
+void		push_swap(t_stacks **stack_one, t_stacks **stack_two);
+t_stacks	*oper_sa_sb(t_stacks *stack);
+t_stacks	*oper_ra_rb(t_stacks *stack);
+t_stacks	*oper_rra_rrb(t_stacks *stack);
+
+//Reproduce operation
+void		do_ss(t_stacks **stack_a, t_stacks **stack_b);
+void		do_sb(t_stacks **stack_b);
+void		do_sa(t_stacks **stack_a);
+void		do_rrr(t_stacks **stack_a, t_stacks **stack_b);
+void		do_rrb(t_stacks **stack_b);
+void		do_rra(t_stacks **stack_a);
+void		do_rr(t_stacks **stack_a, t_stacks **stack_b);
+void		do_rb(t_stacks **stack_b);
+void		do_ra(t_stacks **stack_a);
 
 //Creator
 size_t		add_int(int **new_mas, char **str, int **old_mas);
 t_stacks	*create_stack(int *old_mas, size_t len_old, t_stacks *stack_a);
+t_stacks	*add_to_beg(t_stacks *stack_a, int value);
 t_stacks	*add_to_end(t_stacks *stack_a, int value);
 t_stacks	*add_to_empty(t_stacks *stack_a, int value);
 
