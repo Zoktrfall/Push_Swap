@@ -15,33 +15,15 @@ int	main(int argc, char *argv[])
 	if (correct_input(argv, &old_mas, &len_old))
 		print_a_standard_error();
 	stack_b = NULL;
+	stack_a = NULL;
 	stack_a = create_stack(old_mas, len_old, stack_a);
-	// int i = 0;
-	// while (i < len_old)
-	// 	printf("%d\n", old_mas[i++]);
-	// printf("continue\n");
-	// printf("%zu\n", len_old);
-	// t_stacks *tmp = stack_a;
-	do_pb(&stack_a, &stack_b);
-	do_pb(&stack_a, &stack_b);
-	do_pb(&stack_a, &stack_b);
-	do_pb(&stack_a, &stack_b);
-	do_pb(&stack_a, &stack_b);
-
-	do_pa(&stack_b, &stack_a);
-
+	stack_a = add_index(stack_a, len_old);
 	// while(stack_a != NULL)
 	// {
-	// 	printf("%d ", stack_a->value);
+	// 	printf("%d %zu\n", stack_a->value, stack_a->index);
 	// 	stack_a = stack_a->next;
 	// }
-	// printf("\n");
-	// while(stack_b != NULL)
-	// {
-	// 	printf("%d ", stack_b->value);
-	// 	stack_b = stack_b->next;
-	// }
-
-	// system("leaks a.out");
+	// printf("\n");	
+	system("leaks a.out");
 	return (0);
 }

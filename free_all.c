@@ -47,14 +47,21 @@ void	free_str(char **str)
 	str = NULL;
 }
 
-t_stacks	*free_stack_a(t_stacks *stack_a)
+t_stacks	*free_stack(t_stacks *stack)
 {
-	while (stack_a->next != NULL)
+	while (stack->next != NULL)
 	{
-		stack_a = stack_a->next;
-		free(stack_a->prev);
-		stack_a->prev = NULL;
+		stack = stack->next;
+		free(stack->prev);
+		stack->prev = NULL;
 	}
-	free(stack_a);
+	free(stack);
 	return (NULL);
+}
+
+void	free_element(t_stacks **stack_one)
+{
+	*stack_one = (*stack_one)->next;
+	free((*stack_one)->prev);
+	(*stack_one)->prev = NULL;
 }

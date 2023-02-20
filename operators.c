@@ -7,6 +7,8 @@ void	push_swap(t_stacks **stack_one, t_stacks **stack_two)
 	if (*stack_two == NULL)
 	{
 		*stack_two = add_to_empty(*stack_two, (*stack_one)->value);
+		if (*stack_two == NULL)
+			emergency_exit(stack_one);
 		*stack_one = (*stack_one)->next;
 		free((*stack_one)->prev);
 		(*stack_one)->prev = NULL;
@@ -14,12 +16,10 @@ void	push_swap(t_stacks **stack_one, t_stacks **stack_two)
 	else
 	{
 		*stack_two = add_to_beg(*stack_two, (*stack_one)->value);
+		if (*stack_two == NULL)
+			emergency_exit(stack_one);
 		if ((*stack_one)->next != NULL)
-		{
-			*stack_one = (*stack_one)->next;
-			free((*stack_one)->prev);
-			(*stack_one)->prev = NULL;
-		}
+			free_element(stack_one);
 		else
 		{
 			free(*stack_one);

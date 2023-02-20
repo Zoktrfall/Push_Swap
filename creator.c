@@ -47,26 +47,26 @@ t_stacks	*create_stack(int *old_mas, size_t len_old, t_stacks *stack_a)
 	return (stack_a);
 }
 
-t_stacks	*add_to_end(t_stacks *stack_a, int value)
+t_stacks	*add_to_end(t_stacks *stack, int value)
 {
 	t_stacks	*tmp;
 	t_stacks	*tmp_start;
 
 	tmp = (t_stacks *)malloc(sizeof(t_stacks));
 	if (tmp == NULL)
-		return (free_stack_a(stack_a));
+		return (free_stack(stack));
 	tmp->prev = NULL;
 	tmp->value = value;
 	tmp->next = NULL;
-	tmp_start = stack_a;
+	tmp_start = stack;
 	while (tmp_start->next != NULL)
 		tmp_start = tmp_start->next;
 	tmp_start->next = tmp;
 	tmp->prev = tmp_start;
-	return (stack_a);
+	return (stack);
 }
 
-t_stacks	*add_to_empty(t_stacks *stack_a, int value)
+t_stacks	*add_to_empty(t_stacks *stack, int value)
 {
 	t_stacks	*tmp;
 
@@ -76,19 +76,21 @@ t_stacks	*add_to_empty(t_stacks *stack_a, int value)
 	tmp->prev = NULL;
 	tmp->value = value;
 	tmp->next = NULL;
-	stack_a = tmp;
-	return (stack_a);
+	stack = tmp;
+	return (stack);
 }
 
-t_stacks	*add_to_beg(t_stacks *stack_a, int value)
+t_stacks	*add_to_beg(t_stacks *stack, int value)
 {
 	t_stacks	*tmp;
 
 	tmp = (t_stacks *)malloc(sizeof(t_stacks));
+	if (tmp == NULL)
+		free_stack(stack);
 	tmp->prev = NULL;
 	tmp->value = value;
-	tmp->next = stack_a;
-	stack_a->prev = tmp;
-	stack_a = tmp;
-	return (stack_a);
+	tmp->next = stack;
+	stack->prev = tmp;
+	stack = tmp;
+	return (stack);
 }

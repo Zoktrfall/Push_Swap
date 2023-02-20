@@ -11,3 +11,9 @@ void	program_exit(int **old_mas)
 	free(*old_mas);
 	exit(0);
 }
+
+void	emergency_exit(t_stacks **stack)
+{
+	free_stack(*stack);
+	exit(1);
+}
