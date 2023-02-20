@@ -54,7 +54,7 @@ int	duplicate_check(int **old_mas, size_t len_old)
 	return (0);
 }
 
-int	correct_input(char **argv, int **old_mas, size_t *len_old)
+int	correct_input(int arc, char **argv, int **old_mas, size_t *len_old)
 {
 	size_t		i;
 	char		**str;
@@ -62,7 +62,7 @@ int	correct_input(char **argv, int **old_mas, size_t *len_old)
 	size_t		len_new;
 
 	i = 0;
-	while (argv[++i])
+	while (++i < (size_t)arc)
 	{
 		str = ft_split(argv[i], ' ');
 		if (check_str(str) || !str || !str[0])

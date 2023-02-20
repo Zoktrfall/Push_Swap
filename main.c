@@ -12,7 +12,7 @@ int	main(int argc, char *argv[])
 	old_mas = malloc(sizeof(int) * 1);
 	if (old_mas == NULL)
 		return (1);
-	if (correct_input(argv, &old_mas, &len_old))
+	if (correct_input(argc, argv, &old_mas, &len_old))
 		print_a_standard_error();
 	stack_b = NULL;
 	stack_a = NULL;

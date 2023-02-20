@@ -78,9 +78,7 @@ t_stacks	*search_add(t_super *str, t_stacks *stack_a, size_t len_old)
 t_stacks	*add_index(t_stacks *stack_a, size_t len_old)
 {
 	t_super		*str;
-	size_t		i;
 
-	i = 0;
 	str = (t_super *)malloc(sizeof(t_super) * len_old);
 	if (str == NULL)
 	{

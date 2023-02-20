@@ -23,7 +23,7 @@ int			*f_cat(int **old_mas, int *new_mas, size_t len_new, size_t len_old);
 
 //Correct Input
 int			check_str(char **str);
-int			correct_input(char **argv, int **old_mas, size_t *len_old);
+int			correct_input(int arc, char **argv, int **old_mas, size_t *len_old);
 int			str_number(char *str);
 int			duplicate_check(int **old_mas, size_t len_old);
 
