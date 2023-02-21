@@ -1,29 +1,29 @@
 #include "push_swap.h"
 
-void	push_swap(t_stacks **stack_one, t_stacks **stack_two)
+void	push_swap(t_stacks **stack1, t_stacks **stack2)
 {
-	if (*stack_one == NULL)
+	if (*stack1 == NULL)
 		return ;
-	if (*stack_two == NULL)
+	if (*stack2 == NULL)
 	{
-		*stack_two = add_to_empty(*stack_two, (*stack_one)->value);
-		if (*stack_two == NULL)
-			emergency_exit(stack_one);
-		*stack_one = (*stack_one)->next;
-		free((*stack_one)->prev);
-		(*stack_one)->prev = NULL;
+		*stack2 = add_to_empty(*stack2, (*stack1)->value, (*stack1)->index);
+		if (*stack2 == NULL)
+			emergency_exit(stack1);
+		*stack1 = (*stack1)->next;
+		free((*stack1)->prev);
+		(*stack1)->prev = NULL;
 	}
 	else
 	{
-		*stack_two = add_to_beg(*stack_two, (*stack_one)->value);
-		if (*stack_two == NULL)
-			emergency_exit(stack_one);
-		if ((*stack_one)->next != NULL)
-			free_element(stack_one);
+		*stack2 = add_to_beg(*stack2, (*stack1)->value, (*stack1)->index);
+		if (*stack2 == NULL)
+			emergency_exit(stack1);
+		if ((*stack1)->next != NULL)
+			free_element(stack1);
 		else
 		{
-			free(*stack_one);
-			(*stack_one) = NULL;
+			free(*stack1);
+			(*stack1) = NULL;
 		}
 	}
 }

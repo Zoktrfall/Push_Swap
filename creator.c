@@ -27,7 +27,7 @@ t_stacks	*create_stack(int *old_mas, size_t len_old, t_stacks *stack_a)
 	size_t	i;
 
 	i = 1;
-	stack_a = add_to_empty(stack_a, old_mas[0]);
+	stack_a = add_to_empty(stack_a, old_mas[0], 0);
 	if (stack_a == NULL)
 	{
 		free(old_mas);
@@ -66,7 +66,7 @@ t_stacks	*add_to_end(t_stacks *stack, int value)
 	return (stack);
 }
 
-t_stacks	*add_to_empty(t_stacks *stack, int value)
+t_stacks	*add_to_empty(t_stacks *stack, int value, size_t index)
 {
 	t_stacks	*tmp;
 
@@ -75,12 +75,13 @@ t_stacks	*add_to_empty(t_stacks *stack, int value)
 		return (NULL);
 	tmp->prev = NULL;
 	tmp->value = value;
+	tmp->index = index;
 	tmp->next = NULL;
 	stack = tmp;
 	return (stack);
 }
 
-t_stacks	*add_to_beg(t_stacks *stack, int value)
+t_stacks	*add_to_beg(t_stacks *stack, int value, size_t index)
 {
 	t_stacks	*tmp;
 
@@ -89,6 +90,7 @@ t_stacks	*add_to_beg(t_stacks *stack, int value)
 		free_stack(stack);
 	tmp->prev = NULL;
 	tmp->value = value;
+	tmp->index = index;
 	tmp->next = stack;
 	stack->prev = tmp;
 	stack = tmp;

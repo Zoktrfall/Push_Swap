@@ -28,7 +28,7 @@ int			str_number(char *str);
 int			duplicate_check(int **old_mas, size_t len_old);
 
 //Operators
-void		push_swap(t_stacks **stack_one, t_stacks **stack_two);
+void		push_swap(t_stacks **stack1, t_stacks **stack2);
 t_stacks	*oper_sa_sb(t_stacks *stack);
 t_stacks	*oper_ra_rb(t_stacks *stack);
 t_stacks	*oper_rra_rrb(t_stacks *stack);
@@ -49,9 +49,9 @@ void		do_ra(t_stacks **stack_a);
 //Creator
 size_t		add_int(int **new_mas, char **str, int **old_mas);
 t_stacks	*create_stack(int *old_mas, size_t len_old, t_stacks *stack_a);
-t_stacks	*add_to_beg(t_stacks *stack, int value);
+t_stacks	*add_to_beg(t_stacks *stack, int value, size_t index);
 t_stacks	*add_to_end(t_stacks *stack, int value);
-t_stacks	*add_to_empty(t_stacks *stack, int value);
+t_stacks	*add_to_empty(t_stacks *stack, int value, size_t index);
 
 //Super_mas
 t_super		*create_super(t_super *str, t_stacks *stack_a);
