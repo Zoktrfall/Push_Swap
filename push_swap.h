@@ -4,11 +4,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_super {
-	size_t				index;
-	int					data;
-}	t_super;
-
 typedef struct s_stacks {
 	struct s_stacks		*prev;
 	size_t				index;
@@ -54,11 +49,10 @@ t_stacks	*add_to_end(t_stacks *stack, int value);
 t_stacks	*add_to_empty(t_stacks *stack, int value, size_t index);
 
 //Super_mas
-t_super		*create_super(t_super *str, t_stacks *stack_a);
-t_super		*str_sort(t_super *str, size_t len_old);
-t_super		*create_index(t_super *str, size_t len_old);
-t_stacks	*search_add(t_super *str, t_stacks *stack_a, size_t len_old);
+int			*create_super(int *str, t_stacks *stack_a);
+int			*str_sort(int *str, size_t len_old);
 t_stacks	*add_index(t_stacks *stack_a, size_t len_old);
+t_stacks	*search_add(int *str, t_stacks *stack_a, size_t len_old);
 
 //Errors and Exits
 void		emergency_exit(t_stacks **stack);

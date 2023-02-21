@@ -73,7 +73,7 @@ int	main(int argc, char *argv[])
 	stack_a = create_stack(old_mas, len_old, stack_a);
 	stack_a = add_index(stack_a, len_old);
 
-	
+
 	static int counts = 0;
 	stack_b = butterfly(len_old, &stack_a, stack_b, &counts);
 	stack_a = my_sorting(&stack_b, stack_a, len_old, &counts);

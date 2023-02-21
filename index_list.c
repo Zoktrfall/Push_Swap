@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_super	*create_super(t_super *str, t_stacks *stack_a)
+int	*create_super(int *str, t_stacks *stack_a)
 {
 	t_stacks	*tmp;
 	size_t		i;
@@ -9,14 +9,14 @@ t_super	*create_super(t_super *str, t_stacks *stack_a)
 	i = 0;
 	while (tmp != NULL)
 	{
-		str[i].data = tmp->value;
+		str[i] = tmp->value;
 		tmp = tmp->next;
 		i++;
 	}
 	return (str);
 }
 
-t_super	*str_sort(t_super *str, size_t len_old)
+int	*str_sort(int *str, size_t len_old)
 {
 	size_t	i;
 	size_t	swap;
@@ -24,11 +24,11 @@ t_super	*str_sort(t_super *str, size_t len_old)
 	i = 0;
 	while (i < len_old - 1)
 	{
-		if (str[i].data > str[i + 1].data)
+		if (str[i] > str[i + 1])
 		{
-			swap = str[i].data;
-			str[i].data = str[i + 1].data;
-			str[i + 1].data = swap;
+			swap = str[i];
+			str[i] = str[i + 1];
+			str[i + 1] = swap;
 			i = 0;
 		}
 		else
@@ -37,20 +37,7 @@ t_super	*str_sort(t_super *str, size_t len_old)
 	return (str);
 }
 
-t_super	*create_index(t_super *str, size_t len_old)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < len_old)
-	{
-		str[i].index = i;
-		i++;
-	}
-	return (str);
-}
-
-t_stacks	*search_add(t_super *str, t_stacks *stack_a, size_t len_old)
+t_stacks	*search_add(int *str, t_stacks *stack_a, size_t len_old)
 {
 	t_stacks	*tmp;
 	size_t		i;
@@ -61,9 +48,9 @@ t_stacks	*search_add(t_super *str, t_stacks *stack_a, size_t len_old)
 	{
 		while (i < len_old)
 		{
-			if (stack_a->value == str[i].data)
+			if (stack_a->value == str[i])
 			{
-				stack_a->index = str[i].index;
+				stack_a->index = i;
 				break ;
 			}
 			i++;
@@ -77,9 +64,9 @@ t_stacks	*search_add(t_super *str, t_stacks *stack_a, size_t len_old)
 
 t_stacks	*add_index(t_stacks *stack_a, size_t len_old)
 {
-	t_super		*str;
+	int		*str;
 
-	str = (t_super *)malloc(sizeof(t_super) * len_old);
+	str = (int *)malloc(sizeof(int) * len_old);
 	if (str == NULL)
 	{
 		free_stack(stack_a);
@@ -87,7 +74,6 @@ t_stacks	*add_index(t_stacks *stack_a, size_t len_old)
 	}
 	str = create_super(str, stack_a);
 	str = str_sort(str, len_old);
-	str = create_index(str, len_old);
 	stack_a = search_add(str, stack_a, len_old);
 	free(str);
 	return (stack_a);
