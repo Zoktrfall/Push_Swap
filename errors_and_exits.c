@@ -17,3 +17,11 @@ void	emergency_exit(t_stacks **stack)
 	free_stack(*stack);
 	exit(1);
 }
+
+void	overflow_error(int **old_mas, int **new_mas, char **str)
+{
+	free_str(str);
+	free(*old_mas);
+	free(*new_mas);
+	print_a_standard_error();
+}

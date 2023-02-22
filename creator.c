@@ -15,6 +15,8 @@ size_t	add_int(int **new_mas, char **str, int **old_mas)
 	i = 0;
 	while (str[i])
 	{
+		if (overflow_or_not(str[i]))
+			overflow_error(old_mas, new_mas, str);
 		(*new_mas)[len_new] = ft_atoi(str[i]);
 		i++;
 		len_new++;

@@ -1,5 +1,24 @@
 #include "push_swap.h"
 
+int	overflow_or_not(char *str)
+{
+	int			i;
+	long long	oper;
+
+	oper = 0;
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] != '\0')
+	{
+		oper = oper * 10 + str[i] - '0';
+		i++;
+	}
+	if (oper > +2147483647 || oper < -2147483648)
+		return (1);
+	return (0);
+}
+
 int	str_number(char *str)
 {
 	size_t	i;
@@ -13,6 +32,8 @@ int	str_number(char *str)
 			return (1);
 		i++;
 	}
+	if (ft_strlen(str) > 11)
+		return (1);
 	return (0);
 }
 
@@ -73,7 +94,7 @@ int	correct_input(int arc, char **argv, int **old_mas, size_t *len_old)
 		}
 		len_new = add_int(&new_mas, str, old_mas);
 		free_str(str);
-		*old_mas = f_cat(old_mas, new_mas, len_new, *len_old);
+		*old_mas = ft_strcat(old_mas, new_mas, len_new, *len_old);
 		*len_old += len_new;
 	}
 	if (*len_old == 1 || !(*len_old))

@@ -14,19 +14,27 @@ typedef struct s_stacks {
 //Utilits
 char		**ft_split(const char *s, char c);
 int			ft_atoi(const char *str);
-int			*f_cat(int **old_mas, int *new_mas, size_t len_new, size_t len_old);
+size_t		ft_strlen(char *str);
+int			*ft_strcat(int **old_mas, int *new_mas, \
+						size_t len_new, size_t len_old);
 
 //Correct Input
 int			check_str(char **str);
 int			correct_input(int arc, char **argv, int **old_mas, size_t *len_old);
 int			str_number(char *str);
 int			duplicate_check(int **old_mas, size_t len_old);
+int			overflow_or_not(char *str);
 
 //Operators
 void		push_swap(t_stacks **stack1, t_stacks **stack2);
 t_stacks	*oper_sa_sb(t_stacks *stack);
 t_stacks	*oper_ra_rb(t_stacks *stack);
 t_stacks	*oper_rra_rrb(t_stacks *stack);
+
+//Find propriate 'n'
+int			ideal_n(size_t len_old);
+size_t		ft_ln(size_t nb);
+size_t		ft_sqrt(size_t nb);
 
 //Reproduce operation
 void		do_pa(t_stacks **stack_b, t_stacks **stack_a);
@@ -58,6 +66,7 @@ t_stacks	*search_add(int *str, t_stacks *stack_a, size_t len_old);
 void		emergency_exit(t_stacks **stack);
 void		print_a_standard_error(void);
 void		program_exit(int **old_mas);
+void		overflow_error(int **old_mas, int **new_mas, char **str);
 
 //Frees
 void		free_element(t_stacks **stack_one);

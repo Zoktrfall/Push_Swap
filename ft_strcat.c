@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	*f_cat(int **old_mas, int *new_mas, size_t len_new, size_t len_old)
+int	*ft_strcat(int **old_mas, int *new_mas, size_t len_new, size_t len_old)
 {
 	size_t	i;
 	size_t	j;

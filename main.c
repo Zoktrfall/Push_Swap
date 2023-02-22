@@ -3,44 +3,6 @@
 
 static int oper = 0;
 
-size_t    ft_sqrt(size_t nb)
-{
-    size_t    i;
-
-    if (nb <= 0)
-        return (0);
-    if (nb == 1)
-        return (1);
-    i = 2;
-    while (i <= nb / i)
-    {
-        if (i * i == nb)
-            return (i);
-        ++i;
-    }
-    return (i - 1);
-}
-
-size_t    ft_ln(size_t nb)
-{
-    size_t    i;
-    size_t    n;
-
-    i = 1;
-    n = 4;
-    while (n < nb)
-    {
-        n = n * 2;
-        ++i;
-    }
-    return (i - 1);
-}
-
-int		ideal_n(size_t len_old)
-{
-	return (ft_ln(len_old) + ft_sqrt(len_old) + 1);
-}
-
 t_stacks	*butterfly(size_t len_old, t_stacks **stack_a, t_stacks *stack_b)
 {
 	size_t	count;
@@ -196,6 +158,18 @@ int	main(int argc, char *argv[])
 	}
 	stack_a = final_sorting(stack_a, &stack_b, len_old);
 	printf("opers = %d\n", oper);
+	while(stack_a != NULL)
+	{
+		printf("value = %d index = %zu\n", stack_a->value, stack_a->index);
+		stack_a = stack_a->next;
+	}
+	printf("\n");
+	while(stack_b != NULL)
+	{
+		printf("value = %d index = %zu\n", stack_b->value, stack_b->index);
+		stack_b = stack_b->next;
+	}
+	printf("\n");
 	// stack_a = free_stack(stack_a);
 
 	// if(stack_b == NULL)
