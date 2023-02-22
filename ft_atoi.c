@@ -1,13 +1,5 @@
 #include "push_swap.h"
 
-int	ispace(char space)
-{
-	if (space == ' ' || space == '\t' || space == '\r'
-		|| space == '\v' || space == '\n' || space == '\f')
-		return (1);
-	return (0);
-}
-
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -17,8 +9,6 @@ int	ft_atoi(const char *str)
 	i = 0;
 	negative = 1;
 	result = 0;
-	while (ispace(str[i]))
-		i++;
 	if (str[i] == '-')
 	{
 		negative = -1;

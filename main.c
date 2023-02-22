@@ -1,57 +1,174 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-t_stacks	*butterfly(size_t len_old, t_stacks **stack_a, t_stacks *stack_b, int *counts)
+static int oper = 0;
+
+size_t    ft_sqrt(size_t nb)
+{
+    size_t    i;
+
+    if (nb <= 0)
+        return (0);
+    if (nb == 1)
+        return (1);
+    i = 2;
+    while (i <= nb / i)
+    {
+        if (i * i == nb)
+            return (i);
+        ++i;
+    }
+    return (i - 1);
+}
+
+size_t    ft_ln(size_t nb)
+{
+    size_t    i;
+    size_t    n;
+
+    i = 1;
+    n = 4;
+    while (n < nb)
+    {
+        n = n * 2;
+        ++i;
+    }
+    return (i - 1);
+}
+
+int		ideal_n(size_t len_old)
+{
+	return (ft_ln(len_old) + ft_sqrt(len_old) + 1);
+}
+
+t_stacks	*butterfly(size_t len_old, t_stacks **stack_a, t_stacks *stack_b)
 {
 	size_t	count;
 	size_t	n;
 
 	count = 0;
-	n = 1;
+	n = ideal_n(len_old);
 	while (count < len_old)
 	{
 		if ((*stack_a)->index <= count)
 		{
 			do_pb(stack_a, &stack_b);
-			(*counts)++;
+			oper++;
 			do_rb(&stack_b);
-			(*counts)++;
+			oper++;
 			count++;
 		}
 		else if ((*stack_a)->index <= count + n)
 		{
 			do_pb(stack_a, &stack_b);
-			(*counts)++;
+			oper++;
 			count++;
 		}
 		else
 		{
 			do_ra(stack_a);
-			(*counts)++;
+			oper++;
 		}
 	}
 	return (stack_b);
 }
 
-t_stacks	*my_sorting(t_stacks **stack_b, t_stacks *stack_a, size_t len_old, int *counts)
+t_stacks	*my_sorting(t_stacks **stack_b, t_stacks *stack_a, size_t len_old)
 {
+	size_t len;
+
+	len = len_old;
 	len_old -= 1;
 	while (len_old)
 	{
 		if ((*stack_b)->index == len_old)
 		{
 			do_pa(stack_b, &stack_a);
-			(*counts)++;
+			oper++;
 			len_old--;
 		}
 		else
 		{
 			do_rrb(stack_b);
-			(*counts)++;
+			oper++;
 		}
 	}
 	do_pa(stack_b, &stack_a);
-	(*counts)++;
+	oper++;
+	return (stack_a);
+}
+
+int	consistently_check(t_stacks *stack_a, size_t len_old)
+{
+	size_t		i;
+	t_stacks	*tmp;
+
+	i = 0;
+	tmp = stack_a;
+	while (i < len_old)
+	{
+		if (stack_a->index != i)
+			return (1);
+		i++;
+		stack_a = stack_a->next;
+	}
+	stack_a = tmp;
+	return (0);
+}
+
+void	sorting_three(t_stacks **stack_a) 
+{
+	t_stacks	*tmp;
+
+	tmp = *stack_a;
+	if ((*stack_a)->index == 2)
+	{
+		do_ra(stack_a);
+		if ((*stack_a)->index == 1)
+			do_sa(stack_a);	
+	}
+	else if ((*stack_a)->next->index == 2)
+	{
+		do_rra(stack_a);
+		if ((*stack_a)->index == 1)
+			do_sa(stack_a);
+	}
+	else
+		do_sa(stack_a);
+}
+
+t_stacks *final_sorting(t_stacks *stack_a, t_stacks **stack_b, size_t len_old)
+{
+	size_t		i;
+	size_t		j;
+	t_stacks	*tmp;
+
+	i = 0;
+	j = 0;
+	if (len_old == 2)
+	{
+		do_sa(&stack_a);
+		return (stack_a);
+	}
+	if (len_old == 3)
+	{
+		sorting_three(&stack_a);
+		return (stack_a);
+	}
+	(*stack_b) = butterfly(len_old, &stack_a, *stack_b);
+	stack_a = my_sorting(stack_b, stack_a, len_old);
+	while(stack_a != NULL)
+	{
+		printf("value = %d index = %zu\n", stack_a->value, stack_a->index);
+		stack_a = stack_a->next;
+	}
+	printf("\n");
+	while((*stack_b) != NULL)
+	{
+		printf("value = %d index = %zu\n", (*stack_b)->value, (*stack_b)->index);
+		(*stack_b) = (*stack_b)->next;
+	}
+	printf("\n");
 	return (stack_a);
 }
 
@@ -72,27 +189,19 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_a = create_stack(old_mas, len_old, stack_a);
 	stack_a = add_index(stack_a, len_old);
-
-
-	static int counts = 0;
-	stack_b = butterfly(len_old, &stack_a, stack_b, &counts);
-	stack_a = my_sorting(&stack_b, stack_a, len_old, &counts);
-	printf("elemenst = %zu\n", len_old);
-	printf("operetions = %d\n", counts);
-	while(stack_a != NULL)
+	if (!consistently_check(stack_a, len_old))
 	{
-		printf("value = %d index = %zu\n", stack_a->value, stack_a->index);
-		stack_a = stack_a->next;
+		free_stack(stack_a);
+		return (0);
 	}
-	printf("\n");
-	while(stack_b != NULL)
-	{
-		printf("value = %d index = %zu\n", stack_b->value, stack_b->index);
-		stack_b = stack_b->next;
-	}
-	printf("\n");	
+	stack_a = final_sorting(stack_a, &stack_b, len_old);
+	printf("opers = %d\n", oper);
+	// stack_a = free_stack(stack_a);
 
-
+	// if(stack_b == NULL)
+	// 	printf("b clear\n");
+	// if(stack_a == NULL)
+	// 	printf("a clear\n");
 	// system("leaks a.out");
 	return (0);
 }
