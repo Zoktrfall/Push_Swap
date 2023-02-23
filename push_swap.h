@@ -26,7 +26,11 @@ int			duplicate_check(int **old_mas, size_t len_old);
 int			overflow_or_not(char *str);
 
 //Sorting List
+size_t		max(t_stacks **stack);
 void		sorting_three(t_stacks **stack_a);
+void		sorting_ten(t_stacks **stack_a, t_stacks **stack_b, size_t len_old);
+void		more(t_stacks **stack_a, t_stacks **stack_b, size_t count);
+void		less(t_stacks **stack_a, t_stacks **stack_b, size_t count);
 
 //Operators
 void		push_swap(t_stacks **stack1, t_stacks **stack2);

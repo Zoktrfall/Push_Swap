@@ -78,7 +78,7 @@ int	consistently_check(t_stacks *stack_a, size_t len_old)
 	return (0);
 }
 
-t_stacks *final_sorting(t_stacks *stack_a, t_stacks **stack_b, size_t len_old)
+t_stacks	*final_sorting(t_stacks *stack_a, t_stacks **stack_b, size_t len_old)
 {
 	size_t		i;
 	size_t		j;
@@ -94,6 +94,11 @@ t_stacks *final_sorting(t_stacks *stack_a, t_stacks **stack_b, size_t len_old)
 	if (len_old == 3)
 	{
 		sorting_three(&stack_a);
+		return (stack_a);
+	}
+	if (len_old >= 4 && len_old <= 12)
+	{
+		sorting_ten(&stack_a, stack_b, len_old);
 		return (stack_a);
 	}
 	(*stack_b) = butterfly(len_old, &stack_a, *stack_b);
