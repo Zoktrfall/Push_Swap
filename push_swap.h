@@ -25,6 +25,9 @@ int			str_number(char *str);
 int			duplicate_check(int **old_mas, size_t len_old);
 int			overflow_or_not(char *str);
 
+//Sorting List
+void		sorting_three(t_stacks **stack_a);
+
 //Operators
 void		push_swap(t_stacks **stack1, t_stacks **stack2);
 t_stacks	*oper_sa_sb(t_stacks *stack);
