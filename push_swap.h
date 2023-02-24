@@ -31,6 +31,11 @@ void		sorting_three(t_stacks **stack_a);
 void		sorting_ten(t_stacks **stack_a, t_stacks **stack_b, size_t len_old);
 void		more(t_stacks **stack_a, t_stacks **stack_b, size_t count);
 void		less(t_stacks **stack_a, t_stacks **stack_b, size_t count);
+t_stacks	*butterfly(size_t len_old, t_stacks **stack_a, t_stacks *stack_b);
+void		less_b(t_stacks **stack_b, t_stacks **stack_a, size_t count);
+void		more_b(t_stacks **stack_b, t_stacks **stack_a, size_t count);
+void		sort_stack(t_stacks **stack_b, t_stacks **stack_a, size_t len_old);
+t_stacks	*final_sort(t_stacks *stack_a, t_stacks **stack_b, size_t len_old);
 
 //Operators
 void		push_swap(t_stacks **stack1, t_stacks **stack2);

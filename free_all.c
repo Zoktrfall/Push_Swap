@@ -49,18 +49,25 @@ void	free_str(char **str)
 
 t_stacks	*free_stack(t_stacks *stack)
 {
-	while (stack->next != NULL)
+	t_stacks	*tmp;
+
+	if (stack == NULL)
+		return (NULL);
+	tmp = stack;
+	while (tmp != NULL)
 	{
 		stack = stack->next;
-		free(stack->prev);
-		stack->prev = NULL;
+		free(tmp);
+		tmp = stack;
 	}
-	free(stack);
+	free(tmp);
 	return (NULL);
 }
 
 void	free_element(t_stacks **stack_one)
 {
+	if ((*stack_one) == NULL)
+		return ;
 	*stack_one = (*stack_one)->next;
 	free((*stack_one)->prev);
 	(*stack_one)->prev = NULL;
