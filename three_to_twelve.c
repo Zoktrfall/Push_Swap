@@ -21,11 +21,9 @@ size_t	max(t_stacks **stack)
 
 void	sorting_three(t_stacks **stack_a)
 {
-	t_stacks	*tmp;
 	size_t		max_index;
 
 	max_index = max(stack_a);
-	tmp = *stack_a;
 	if ((*stack_a)->index == max_index)
 	{
 		do_ra(stack_a);

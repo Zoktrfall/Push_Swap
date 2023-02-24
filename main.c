@@ -5,6 +5,7 @@ int	consistently_check(t_stacks *stack_a, size_t len_old)
 {
 	size_t		i;
 	t_stacks	*tmp;
+
 	i = 0;
 	tmp = stack_a;
 	while (i < len_old)

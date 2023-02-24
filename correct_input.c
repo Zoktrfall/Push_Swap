@@ -2,7 +2,7 @@
 
 int	overflow_or_not(char *str)
 {
-	int 		minus;
+	int			minus;
 	int			i;
 	long long	oper;
 
