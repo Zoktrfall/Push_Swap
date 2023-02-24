@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include <stdio.h>
 
 int	consistently_check(t_stacks *stack_a, size_t len_old)
 {
