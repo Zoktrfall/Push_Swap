@@ -2,18 +2,26 @@
 
 int	overflow_or_not(char *str)
 {
+	int 		minus;
 	int			i;
 	long long	oper;
 
 	oper = 0;
 	i = 0;
-	if (str[i] == '-' || str[i] == '+')
+	minus = 1;
+	if (str[i] == '-')
+	{
+		minus = -1;
+		i++;
+	}
+	else if (str[i] == '+')
 		i++;
 	while (str[i] != '\0')
 	{
 		oper = oper * 10 + str[i] - '0';
 		i++;
 	}
+	oper *= minus;
 	if (oper > +2147483647 || oper < -2147483648)
 		return (1);
 	return (0);

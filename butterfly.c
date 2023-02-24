@@ -76,14 +76,12 @@ t_stacks	*final_sort(t_stacks *stack_a, t_stacks **stack_b, size_t len_old)
 		do_sa(&stack_a);
 		return (stack_a);
 	}
-	printf("oper\n");
 	if (len_old == 3)
 	{
 		sorting_three(&stack_a);
 		return (stack_a);
 	}
-	printf("oper1\n");
-	if (len_old >= 4 && len_old <= 12)
+	if (len_old >= 4 && len_old <= 13)
 	{
 		sorting_ten(&stack_a, stack_b, len_old);
 		return (stack_a);

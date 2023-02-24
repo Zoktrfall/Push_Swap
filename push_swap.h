@@ -13,12 +13,13 @@ typedef struct s_stacks {
 
 //Utilits
 char		**ft_split(const char *s, char c);
-int			ft_atoi(const char *str);
+long long	ft_atoi(const char *str);
 size_t		ft_strlen(char *str);
 int			*ft_strcat(int **old_mas, int *new_mas, \
 						size_t len_new, size_t len_old);
 
 //Correct Input
+int			consistently_check(t_stacks *stack_a, size_t len_old);
 int			check_str(char **str);
 int			correct_input(int arc, char **argv, int **old_mas, size_t *len_old);
 int			str_number(char *str);
