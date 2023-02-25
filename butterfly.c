@@ -81,7 +81,7 @@ t_stacks	*final_sort(t_stacks *stack_a, t_stacks **stack_b, size_t len_old)
 		sorting_three(&stack_a);
 		return (stack_a);
 	}
-	if (len_old >= 4 && len_old <= 13)
+	if (len_old >= 4 && len_old <= 10)
 	{
 		sorting_ten(&stack_a, stack_b, len_old);
 		return (stack_a);

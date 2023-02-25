@@ -23,11 +23,11 @@ clean :
 	@rm -rf $(OBJ)
 
 fclean : clean
-	@echo "$(RED)Deleting $(NAME)... $(RESET)"
+	@echo "$(RED)Deleting $(NAME).. $(RESET)"
 	@rm -rf $(NAME)
 
 re : fclean $(NAME)
-	@echo "$(GREEN)Updated Push_Swap$(RESET)"
+	@echo "$(GREEN)Updated Push_Swap!$(RESET)"
 
 .PHONY : re fclean clean all
 
