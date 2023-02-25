@@ -19,6 +19,7 @@ int			*ft_strcat(int **old_mas, int *new_mas, \
 						size_t len_new, size_t len_old);
 
 //Correct Input
+int			fatal_mistake(t_stacks **stack_a);
 int			consistently_check(t_stacks *stack_a, size_t len_old);
 int			check_str(char **str);
 int			correct_input(int arc, char **argv, int **old_mas, size_t *len_old);

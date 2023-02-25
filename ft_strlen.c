@@ -11,7 +11,7 @@ size_t	ft_strlen(char *str)
 	while (str[a] != '\0' && str[a] == '0')
 		a++;
 	len = a;
-	while(str[len] != '\0')
+	while (str[len] != '\0')
 		len++;
 	return (len - a);
 }

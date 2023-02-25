@@ -23,6 +23,8 @@ void	sorting_three(t_stacks **stack_a)
 {
 	size_t		max_index;
 
+	if (fatal_mistake(stack_a))
+		return ;
 	max_index = max(stack_a);
 	if ((*stack_a)->index == max_index)
 	{

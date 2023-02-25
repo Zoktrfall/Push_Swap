@@ -1,23 +1,5 @@
 #include "push_swap.h"
 
-int	consistently_check(t_stacks *stack_a, size_t len_old)
-{
-	size_t		i;
-	t_stacks	*tmp;
-
-	i = 0;
-	tmp = stack_a;
-	while (i < len_old)
-	{
-		if (stack_a->index != i)
-			return (1);
-		i++;
-		stack_a = stack_a->next;
-	}
-	stack_a = tmp;
-	return (0);
-}
-
 int	main(int argc, char *argv[])
 {
 	int			*old_mas;
