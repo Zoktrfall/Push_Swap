@@ -8,7 +8,6 @@ OBJ = $(patsubst %.c, %.o, $(SRC))
 RESET  = \033[0
 RED    = \033[31m
 GREEN  = \033[32m
-BLUE   = \033[34m
 
 all : $(NAME)
 
