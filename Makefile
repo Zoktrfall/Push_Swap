@@ -17,7 +17,6 @@ $(NAME) : $(OBJ) Makefile push_swap.h
 	@echo "$(GREEN)Push_Swap Is Ready To Run!$(RESET)"
 
 %.o : %.c
-	@echo "$(BLUE)Creating Object Files..$(RESET)"
 	@gcc $(FLAGS) -c $< -o $@
 
 clean : 
