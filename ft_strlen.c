@@ -7,6 +7,8 @@ size_t	ft_strlen(char *str)
 
 	a = 0;
 	len = 0;
+	if (str[a] == '-' || str[a] == '+')
+		a++;
 	while (str[a] != '\0' && str[a] == '0')
 		a++;
 	len = a;
