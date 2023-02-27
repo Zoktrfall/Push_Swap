@@ -1,4 +1,5 @@
 #include "checker.h"
+#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
@@ -18,6 +19,19 @@ int	main(int argc, char *argv[])
 	stack_a = create_stack(old_mas, len_old, stack_a);
 	stack_a = add_index(stack_a, len_old);
 	stack_a = sorting_by_command(stack_a, &stack_b);
+	// t_stacks *tmp = stack_a;
+	// while(tmp != NULL)
+	// {
+	// 	printf("%zu\n", tmp->index);
+	// 	tmp = tmp->next;
+	// }
+	// printf("b\n");
+	// tmp = stack_b;
+	// while(tmp != NULL)
+	// {
+	// 	printf("%zu\n", tmp->index);
+	// 	tmp = tmp->next;
+	// }
 	sorting_check(&stack_a, &stack_b, len_old);
 	stack_b = free_stack(stack_b);
 	stack_a = free_stack(stack_a);

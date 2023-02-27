@@ -35,7 +35,7 @@ void		sorting_check(t_stacks **stack_a, t_stacks **stack_b, \
 //Reproduce
 void		reproduce_sa(t_stacks **stack_a);
 void		reproduce_sb(t_stacks **stack_b);
-void		reproduce_sa_sb(t_stacks **stack_a, t_stacks **stack_b);
+void		reproduce_ss(t_stacks **stack_a, t_stacks **stack_b);
 void		reproduce_ra(t_stacks **stack_a);
 void		reproduce_rb(t_stacks **stack_b);
 void		reproduce_rr(t_stacks **stack_a, t_stacks **stack_b);
