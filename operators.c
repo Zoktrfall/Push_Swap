@@ -40,6 +40,11 @@ t_stacks	*oper_sa_sb(t_stacks *stack)
 	tmp->next = stack;
 	stack->prev = tmp;
 	stack = tmp;
+	if (tmp->next->next != NULL)
+	{
+		tmp = tmp->next->next;
+		tmp->prev = stack->next;
+	}
 	return (stack);
 }
 

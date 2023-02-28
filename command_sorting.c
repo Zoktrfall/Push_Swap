@@ -1,5 +1,4 @@
 #include "checker.h"
-#include <stdio.h>
 
 int	correct_comands(char *args)
 {
@@ -58,19 +57,6 @@ t_stacks	*sorting_by_command(t_stacks *stack_a, t_stacks **stack_b)
 		}
 		stack_a = sorting(stack_a, stack_b, args);
 		free(args);
-		// 	t_stacks *tmp = stack_a;
-		// while(tmp != NULL)
-		// {
-		// 	printf("%zu\n", tmp->index);
-		// 	tmp = tmp->next;
-		// }
-		// printf("b\n");
-		// tmp = *stack_b;
-		// while(tmp != NULL)
-		// {
-		// 	printf("%zu\n", tmp->index);
-		// 	tmp = tmp->next;
-		// }
 	}
 	get_next_line(0, 1);
 	free(args);

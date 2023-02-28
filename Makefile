@@ -50,15 +50,14 @@ re : fclean $(NAME)
 
 .PHONY : re fclean clean all
 
-test:			$(NAME)	
-				$(eval ARG = $(shell jot -r 500 0 20000000))
-				./push_swap $(ARG) | ./checker_Mac $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
+# test:			$(NAME)	
+# 				$(eval ARG = $(shell jot -r 500 0 20000000))
+# 				./push_swap $(ARG) | ./checker_Mac $(ARG)
+# 				@echo -n "Instructions: "
+# 				@./push_swap $(ARG) | wc -l
 
-test_my:		$(NAME)	$(BONUS_NAME)
-				$(eval ARG = $(shell jot -r 500 0 2000000))
-				./push_swap $(ARG) | ./checker $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
-#				./push_swap $(ARG)
+# test_my:		$(NAME)	$(BONUS_NAME)
+# 				$(eval ARG = $(shell jot -r 500 0 20000000))
+# 				./push_swap $(ARG) | ./checker $(ARG)
+# 				@echo -n "Instructions: "
+# 				@./push_swap $(ARG) | wc -l
