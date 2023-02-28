@@ -15,7 +15,7 @@ typedef struct s_stacks {
 	struct s_stacks		*next;
 }	t_stacks;
 
-//Utilits
+//Utilities
 char		**ft_split(const char *s, char c);
 int			ft_strcmp(char *s1, char *s2);
 long long	ft_atoi(const char *str);
