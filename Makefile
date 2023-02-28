@@ -32,7 +32,8 @@ $(NAME) : $(OBJ) Makefile push_swap.h
 bonus : $(BONUS_NAME) 
 
 $(BONUS_NAME) : $(OBJ_BONUS) Makefile checker.h
-	gcc $(FLAGS) $(OBJ_BONUS) -o $(BONUS_NAME)
+	@gcc $(FLAGS) $(OBJ_BONUS) -o $(BONUS_NAME)
+	@echo "$(GREEN)Checker Is Ready To Run!$(RESET)"
 
 %.o : %.c
 	@gcc $(FLAGS) -c $< -o $@
@@ -42,13 +43,13 @@ clean :
 	@rm -rf $(OBJ) $(OBJ_BONUS)
 
 fclean : clean
-	@echo "$(RED)Deleting $(NAME).. $(RESET)"
+	@echo "$(RED)Deleting $(NAME), $(BONUS_NAME).. $(RESET)"
 	@rm -rf $(NAME) $(BONUS_NAME)
 
 re : fclean $(NAME)
 	@echo "$(GREEN)Updated Push_Swap!$(RESET)"
 
-.PHONY : re fclean clean all
+.PHONY : re fclean clean all bonus
 
 # test:			$(NAME)	
 # 				$(eval ARG = $(shell jot -r 500 0 20000000))
